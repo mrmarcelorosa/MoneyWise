@@ -19,4 +19,15 @@ public class CategoryService {
                 new ObjectNotFoundException("Categoria não encontrada!")
         );
     }
+
+    public Category save(Category category){
+        return repository.save(category);
+    }
+
+    public Category update(Category category){
+        findById(category.getId());
+        return repository.save(category);
+    }
+
+
 }
