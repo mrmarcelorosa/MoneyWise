@@ -1,6 +1,7 @@
 package com.MoneyWise.category.entity;
 
 import com.MoneyWise.financialLaunch.entity.FinancialLaunch;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -26,6 +27,7 @@ public class Category implements Serializable {
     @Column(length = 20)
     private String description;
 
+    @JsonIgnore
     @OneToMany(mappedBy = "category", cascade = {CascadeType.PERSIST, CascadeType.MERGE})
     private List<FinancialLaunch> financialLaunches = new ArrayList<>();
 

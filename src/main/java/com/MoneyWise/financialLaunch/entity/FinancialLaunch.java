@@ -44,4 +44,9 @@ public class FinancialLaunch implements Serializable {
     @JoinColumn(name = "category_id")
     private Category category;
 
+    @PrePersist
+    public void prePersist() {
+        this.registrationDate = LocalDate.now();
+    }
+
 }
